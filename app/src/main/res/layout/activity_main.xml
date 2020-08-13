@@ -11,7 +11,7 @@
         android:id="@+id/imageView3"
         android:layout_width="224dp"
         android:layout_height="159dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,12 +19,11 @@
         app:srcCompat="@drawable/logo" />
 
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="?attr/actionModeSplitBackground"
         android:clickable="true"
         android:elevation="8dp"
@@ -42,7 +41,7 @@
         android:id="@+id/btPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="?attr/actionModeSplitBackground"
         android:clickable="true"
         android:elevation="8dp"
@@ -56,7 +55,6 @@
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
 
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -68,14 +66,14 @@
         android:textStyle="normal"
         app:layout_constraintBaseline_toBaselineOf="@+id/editValor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="0,00"
         android:textColor="?android:attr/textColor"
         android:textSize="30sp"
@@ -88,9 +86,9 @@
         android:id="@+id/imageView"
         android:layout_width="44dp"
         android:layout_height="41dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editValor"
         app:srcCompat="@drawable/people" />
@@ -100,20 +98,19 @@
         android:layout_width="167dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="16dp"
+        android:digits="0123456789."
         android:ems="10"
         android:inputType="numberDecimal"
-        android:digits="0123456789."
         android:text=""
         android:textColor="?android:attr/textColor"
         android:textColorHint="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
 
 
     <EditText
@@ -121,7 +118,7 @@
         android:layout_width="165dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="number"
@@ -129,7 +126,7 @@
         android:textColor="?android:attr/textColor"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editValor" />
 
