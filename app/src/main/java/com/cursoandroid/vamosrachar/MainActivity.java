@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
         setContentView(R.layout.activity_main);
         edtValor=(EditText) findViewById(R.id.editValor);
         edtValor.addTextChangedListener(this);
+        edtDiv=(EditText) findViewById(R.id.editDiv);
+        edtDiv.addTextChangedListener(this);
 
         tvResult= (TextView) findViewById(R.id.tvResultado);
         share = (FloatingActionButton) findViewById(R.id.btShare);
@@ -54,15 +56,15 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
 
         super.onActivityResult(requestCode,resultCode,data);
         if (requestCode==1122){
-            if(requestCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS){
+            if(resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS){
                 //the user has the necessary data - create the TTS
                 ttsPlayer = new TextToSpeech(this,this);
             }else {
                 // no data - install it now
                 Intent installTTSIntent = new Intent();
                 installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                //startActivity(installTTSIntent);
-                startActivityForResult(installTTSIntent, 1122);
+                startActivity(installTTSIntent);
+                //startActivityForResult(installTTSIntent, 1122);
             }
         }
     }
@@ -82,13 +84,24 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
         Log.v("PDM",edtValor.getText().toString());
 
         try {
-            double res =Double.parseDouble(edtValor.getText().toString());
-            res= (res/2);
-            DecimalFormat df= new DecimalFormat("#.00");
-            tvResult.setText("R$ "+df.format(res));
+            valor =Double.parseDouble(edtValor.getText().toString());
+            grupo = Integer.parseInt(edtDiv.getText().toString());
+
+            if(grupo != 0){
+                double res= valor/grupo;
+                DecimalFormat df= new DecimalFormat("#.00");
+                tvResult.setText("R$ "+df.format(res));
+
+            }else{
+                tvResult.setText("R$ 0,00");
+            }
+
+
+
 
         }catch (Exception e){
             tvResult.setText("R$ 0,00");
+            Log.v("Erro","Numeros usados geram erro no resultado");
         }
 
 
@@ -105,10 +118,10 @@ public class MainActivity extends AppCompatActivity implements TextWatcher, View
         }
 
         if(v==play){
-            Log.v("PDM Play",tvResult.getText().toString());
+            //Log.v("PDM Play",tvResult.getText().toString());
             if (ttsPlayer!=null){
-                Log.v("PDM Play2",tvResult.getText().toString());
-               ttsPlayer.speak("O valor para dada um é de" + tvResult.getText().toString()+ "reais",TextToSpeech.QUEUE_FLUSH,null, "ID1");
+               // Log.v("PDM Play2",tvResult.getText().toString());
+               ttsPlayer.speak("O valor para cada pessoa foi de:" + tvResult.getText().toString(),TextToSpeech.QUEUE_FLUSH,null, "ID1");
             }
         }
 
